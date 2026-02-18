@@ -1,6 +1,8 @@
-FROM ccr-2vdh3abv-pub.cnc.bj.baidubce.com/paddlex/paddlex:paddlex3.0.1-paddlepaddle3.0.0-gpu-cuda11.8-cudnn8.9-trt8.6
+FROM ccr-2vdh3abv-pub.cnc.bj.baidubce.com/paddlepaddle/paddle:3.0.0-gpu-cuda11.8-cudnn8.9-trt8.6
 
-RUN pip install --no-cache-dir paddleocr==3.4.0
+RUN python -m pip install --no-cache-dir paddlepaddle-gpu==3.2.0 -i https://www.paddlepaddle.org.cn/packages/stable/cu118/
+
+RUN python -m pip install --no-cache-dir paddleocr
 
 # Install high-performance inference dependencies (TensorRT + optimized backends)
 RUN paddleocr install_hpi_deps gpu
