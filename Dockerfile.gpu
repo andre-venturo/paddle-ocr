@@ -1,0 +1,14 @@
+FROM ccr-2vdh3abv-pub.cnc.bj.baidubce.com/paddlex/paddlex:paddlex3.0.1-paddlepaddle3.0.0-gpu-cuda11.8-cudnn8.9-trt8.6
+
+RUN pip install --no-cache-dir paddleocr==3.4.0
+
+# Install high-performance inference dependencies (TensorRT + optimized backends)
+RUN paddleocr install_hpi_deps gpu
+
+ENV PADDLE_PDX_DISABLE_MODEL_SOURCE_CHECK=True
+ENV NVIDIA_VISIBLE_DEVICES=all
+ENV NVIDIA_DRIVER_CAPABILITIES=compute,utility
+
+WORKDIR /app
+
+ENTRYPOINT ["paddleocr"]

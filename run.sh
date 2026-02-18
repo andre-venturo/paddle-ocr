@@ -7,7 +7,7 @@ docker run --rm \
   -v paddleocr-models:/root/.paddlex \
   paddleocr \
   ocr \
-  -i "/app/Screenshot 2026-02-04 at 13.43.55.png" \
+  -i "/app/KK_3.jpg" \
   --use_doc_orientation_classify False \
   --use_doc_unwarping False \
   --use_textline_orientation False \
